@@ -1,9 +1,8 @@
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import { useEffect, useState } from "react";
-import "@splidejs/react-splide/css";
 import api from "../../utils/api";
-import { Link } from "react-router-dom";
 import { baseImgUrl } from "../../utils/constants";
+import { Link } from "react-router-dom";
 
 const MovieList = ({ genre }) => {
   const [movies, setMovies] = useState();
@@ -11,8 +10,6 @@ const MovieList = ({ genre }) => {
   useEffect(() => {
     const params = {
       with_genres: genre.id,
-      language: "en",
-      region: "UK",
     };
 
     api
@@ -21,8 +18,8 @@ const MovieList = ({ genre }) => {
   }, []);
 
   return (
-    <div>
-      <h1 className="text-3xl font-semibold mb-33">{genre.name}</h1>
+    <div className="my-10">
+      <h1 className="text-3xl font-semibold mb-3">{genre.name}</h1>
 
       <Splide
         options={{

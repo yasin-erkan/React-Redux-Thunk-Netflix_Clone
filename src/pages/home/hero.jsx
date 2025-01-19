@@ -5,21 +5,19 @@ import Loader from "../../components/loader";
 import { Link } from "react-router-dom";
 import { FaPlay } from "react-icons/fa6";
 import { BsBookmarkPlusFill } from "react-icons/bs";
-import { baseImgUrl } from "./../../utils/constants";
+import { baseImgUrl } from "../../utils/constants";
 import Button from "../../components/button";
 
 const Hero = () => {
   const [movie, setMovie] = useState();
-
   const [error, setError] = useState();
 
   useEffect(() => {
     api
-      .get("/movie/popular?language=en&region=UK")
+      .get("/movie/popular?language=en&region=US")
       .then((res) => {
-        //construct random number 1-20
         const i = Math.round(Math.random() * 20);
-        //convey random movie into the state
+
         setMovie(res.data.results[i]);
       })
       .catch((err) => setError(err.message));
@@ -46,7 +44,7 @@ const Hero = () => {
         <div className="flex gap-5">
           <Link to={`/movie/${movie.id}`} className="hero-btn">
             <FaPlay />
-            Filmi İzle
+            Watch
           </Link>
 
           <Button movie={movie} />

@@ -1,7 +1,10 @@
 import { IoBookmark } from "react-icons/io5";
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
 const Header = () => {
+  const list = useSelector((store) => store);
+
   return (
     <header className="mb-10 flex justify-between items-center">
       <Link to="/">
@@ -15,10 +18,10 @@ const Header = () => {
         <div className="relative">
           <IoBookmark className="text-xl" />
           <span className="absolute right-[-13px] top-[-13px] bg-red-500 size-5 rounded-full grid place-items-center text-sm font-semibold">
-            4
+            {list.length}
           </span>
         </div>
-        İzleme Listesi
+        Watching List
       </Link>
     </header>
   );

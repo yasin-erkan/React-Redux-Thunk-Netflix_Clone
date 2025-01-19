@@ -13,7 +13,7 @@ const Home = () => {
     api
       .get("/genre/movie/list?language=en")
       .then((res) => setGenres(res.data.genres))
-      .catch((er) => setError(error.message));
+      .catch((err) => setError(error.message));
   }, []);
 
   return (
